@@ -4,7 +4,7 @@
 	<model name="com.example.book.model.Guestbook">
 		<field name="mvccVersion" type="long" />
 		<field name="uuid" type="String" />
-		<field name="entryId" type="long" />
+		<field name="guestbookId" type="long" />
 		<field name="name" type="String" />
 		<field name="groupId" type="long" />
 		<field name="companyId" type="long" />
@@ -21,7 +21,9 @@
 		<field name="mvccVersion" type="long" />
 		<field name="uuid" type="String" />
 		<field name="entryId" type="long" />
-		<field name="name" type="String" />
+		<field name="name" type="String">
+			<hint name="max-length">150</hint>
+		</field>
 		<field name="email" type="String" />
 		<field name="message" type="String" />
 		<field name="guestbookId" type="long" />

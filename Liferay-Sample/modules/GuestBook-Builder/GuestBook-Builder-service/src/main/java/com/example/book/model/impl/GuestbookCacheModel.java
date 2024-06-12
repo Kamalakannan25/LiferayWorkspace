@@ -40,7 +40,7 @@ public class GuestbookCacheModel
 
 		GuestbookCacheModel guestbookCacheModel = (GuestbookCacheModel)object;
 
-		if ((entryId == guestbookCacheModel.entryId) &&
+		if ((guestbookId == guestbookCacheModel.guestbookId) &&
 			(mvccVersion == guestbookCacheModel.mvccVersion)) {
 
 			return true;
@@ -51,7 +51,7 @@ public class GuestbookCacheModel
 
 	@Override
 	public int hashCode() {
-		int hashCode = HashUtil.hash(0, entryId);
+		int hashCode = HashUtil.hash(0, guestbookId);
 
 		return HashUtil.hash(hashCode, mvccVersion);
 	}
@@ -74,8 +74,8 @@ public class GuestbookCacheModel
 		sb.append(mvccVersion);
 		sb.append(", uuid=");
 		sb.append(uuid);
-		sb.append(", entryId=");
-		sb.append(entryId);
+		sb.append(", guestbookId=");
+		sb.append(guestbookId);
 		sb.append(", name=");
 		sb.append(name);
 		sb.append(", groupId=");
@@ -116,7 +116,7 @@ public class GuestbookCacheModel
 			guestbookImpl.setUuid(uuid);
 		}
 
-		guestbookImpl.setEntryId(entryId);
+		guestbookImpl.setGuestbookId(guestbookId);
 
 		if (name == null) {
 			guestbookImpl.setName("");
@@ -177,7 +177,7 @@ public class GuestbookCacheModel
 		mvccVersion = objectInput.readLong();
 		uuid = objectInput.readUTF();
 
-		entryId = objectInput.readLong();
+		guestbookId = objectInput.readLong();
 		name = objectInput.readUTF();
 
 		groupId = objectInput.readLong();
@@ -207,7 +207,7 @@ public class GuestbookCacheModel
 			objectOutput.writeUTF(uuid);
 		}
 
-		objectOutput.writeLong(entryId);
+		objectOutput.writeLong(guestbookId);
 
 		if (name == null) {
 			objectOutput.writeUTF("");
@@ -248,7 +248,7 @@ public class GuestbookCacheModel
 
 	public long mvccVersion;
 	public String uuid;
-	public long entryId;
+	public long guestbookId;
 	public String name;
 	public long groupId;
 	public long companyId;

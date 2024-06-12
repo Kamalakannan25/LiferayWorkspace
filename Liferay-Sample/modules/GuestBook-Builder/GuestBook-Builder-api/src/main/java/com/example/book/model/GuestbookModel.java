@@ -87,18 +87,18 @@ public interface GuestbookModel
 	public void setUuid(String uuid);
 
 	/**
-	 * Returns the entry ID of this guestbook.
+	 * Returns the guestbook ID of this guestbook.
 	 *
-	 * @return the entry ID of this guestbook
+	 * @return the guestbook ID of this guestbook
 	 */
-	public long getEntryId();
+	public long getGuestbookId();
 
 	/**
-	 * Sets the entry ID of this guestbook.
+	 * Sets the guestbook ID of this guestbook.
 	 *
-	 * @param entryId the entry ID of this guestbook
+	 * @param guestbookId the guestbook ID of this guestbook
 	 */
-	public void setEntryId(long entryId);
+	public void setGuestbookId(long guestbookId);
 
 	/**
 	 * Returns the name of this guestbook.

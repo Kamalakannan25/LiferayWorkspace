@@ -77,11 +77,11 @@ public interface GuestbookLocalService
 	/**
 	 * Creates a new guestbook with the primary key. Does not add the guestbook to the database.
 	 *
-	 * @param entryId the primary key for the new guestbook
+	 * @param guestbookId the primary key for the new guestbook
 	 * @return the new guestbook
 	 */
 	@Transactional(enabled = false)
-	public Guestbook createGuestbook(long entryId);
+	public Guestbook createGuestbook(long guestbookId);
 
 	/**
 	 * @throws PortalException
@@ -109,12 +109,12 @@ public interface GuestbookLocalService
 	 * <strong>Important:</strong> Inspect GuestbookLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
 	 * </p>
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook that was removed
 	 * @throws PortalException if a guestbook with the primary key could not be found
 	 */
 	@Indexable(type = IndexableType.DELETE)
-	public Guestbook deleteGuestbook(long entryId) throws PortalException;
+	public Guestbook deleteGuestbook(long guestbookId) throws PortalException;
 
 	/**
 	 * @throws PortalException
@@ -196,7 +196,7 @@ public interface GuestbookLocalService
 		DynamicQuery dynamicQuery, Projection projection);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public Guestbook fetchGuestbook(long entryId);
+	public Guestbook fetchGuestbook(long guestbookId);
 
 	/**
 	 * Returns the guestbook matching the UUID and group.
@@ -218,12 +218,12 @@ public interface GuestbookLocalService
 	/**
 	 * Returns the guestbook with the primary key.
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook
 	 * @throws PortalException if a guestbook with the primary key could not be found
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public Guestbook getGuestbook(long entryId) throws PortalException;
+	public Guestbook getGuestbook(long guestbookId) throws PortalException;
 
 	/**
 	 * Returns the guestbook matching the UUID and group.

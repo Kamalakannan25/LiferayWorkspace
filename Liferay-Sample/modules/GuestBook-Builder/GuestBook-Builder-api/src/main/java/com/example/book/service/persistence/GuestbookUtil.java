@@ -239,19 +239,19 @@ public class GuestbookUtil {
 	/**
 	 * Returns the guestbooks before and after the current guestbook in the ordered set where uuid = &#63;.
 	 *
-	 * @param entryId the primary key of the current guestbook
+	 * @param guestbookId the primary key of the current guestbook
 	 * @param uuid the uuid
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next guestbook
 	 * @throws NoSuchGuestbookException if a guestbook with the primary key could not be found
 	 */
 	public static Guestbook[] findByUuid_PrevAndNext(
-			long entryId, String uuid,
+			long guestbookId, String uuid,
 			OrderByComparator<Guestbook> orderByComparator)
 		throws com.example.book.exception.NoSuchGuestbookException {
 
 		return getPersistence().findByUuid_PrevAndNext(
-			entryId, uuid, orderByComparator);
+			guestbookId, uuid, orderByComparator);
 	}
 
 	/**
@@ -483,7 +483,7 @@ public class GuestbookUtil {
 	/**
 	 * Returns the guestbooks before and after the current guestbook in the ordered set where uuid = &#63; and companyId = &#63;.
 	 *
-	 * @param entryId the primary key of the current guestbook
+	 * @param guestbookId the primary key of the current guestbook
 	 * @param uuid the uuid
 	 * @param companyId the company ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
@@ -491,12 +491,12 @@ public class GuestbookUtil {
 	 * @throws NoSuchGuestbookException if a guestbook with the primary key could not be found
 	 */
 	public static Guestbook[] findByUuid_C_PrevAndNext(
-			long entryId, String uuid, long companyId,
+			long guestbookId, String uuid, long companyId,
 			OrderByComparator<Guestbook> orderByComparator)
 		throws com.example.book.exception.NoSuchGuestbookException {
 
 		return getPersistence().findByUuid_C_PrevAndNext(
-			entryId, uuid, companyId, orderByComparator);
+			guestbookId, uuid, companyId, orderByComparator);
 	}
 
 	/**
@@ -652,19 +652,19 @@ public class GuestbookUtil {
 	/**
 	 * Returns the guestbooks before and after the current guestbook in the ordered set where groupId = &#63;.
 	 *
-	 * @param entryId the primary key of the current guestbook
+	 * @param guestbookId the primary key of the current guestbook
 	 * @param groupId the group ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next guestbook
 	 * @throws NoSuchGuestbookException if a guestbook with the primary key could not be found
 	 */
 	public static Guestbook[] findByGroupId_PrevAndNext(
-			long entryId, long groupId,
+			long guestbookId, long groupId,
 			OrderByComparator<Guestbook> orderByComparator)
 		throws com.example.book.exception.NoSuchGuestbookException {
 
 		return getPersistence().findByGroupId_PrevAndNext(
-			entryId, groupId, orderByComparator);
+			guestbookId, groupId, orderByComparator);
 	}
 
 	/**
@@ -707,24 +707,24 @@ public class GuestbookUtil {
 	/**
 	 * Creates a new guestbook with the primary key. Does not add the guestbook to the database.
 	 *
-	 * @param entryId the primary key for the new guestbook
+	 * @param guestbookId the primary key for the new guestbook
 	 * @return the new guestbook
 	 */
-	public static Guestbook create(long entryId) {
-		return getPersistence().create(entryId);
+	public static Guestbook create(long guestbookId) {
+		return getPersistence().create(guestbookId);
 	}
 
 	/**
 	 * Removes the guestbook with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook that was removed
 	 * @throws NoSuchGuestbookException if a guestbook with the primary key could not be found
 	 */
-	public static Guestbook remove(long entryId)
+	public static Guestbook remove(long guestbookId)
 		throws com.example.book.exception.NoSuchGuestbookException {
 
-		return getPersistence().remove(entryId);
+		return getPersistence().remove(guestbookId);
 	}
 
 	public static Guestbook updateImpl(Guestbook guestbook) {
@@ -734,24 +734,24 @@ public class GuestbookUtil {
 	/**
 	 * Returns the guestbook with the primary key or throws a <code>NoSuchGuestbookException</code> if it could not be found.
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook
 	 * @throws NoSuchGuestbookException if a guestbook with the primary key could not be found
 	 */
-	public static Guestbook findByPrimaryKey(long entryId)
+	public static Guestbook findByPrimaryKey(long guestbookId)
 		throws com.example.book.exception.NoSuchGuestbookException {
 
-		return getPersistence().findByPrimaryKey(entryId);
+		return getPersistence().findByPrimaryKey(guestbookId);
 	}
 
 	/**
 	 * Returns the guestbook with the primary key or returns <code>null</code> if it could not be found.
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook, or <code>null</code> if a guestbook with the primary key could not be found
 	 */
-	public static Guestbook fetchByPrimaryKey(long entryId) {
-		return getPersistence().fetchByPrimaryKey(entryId);
+	public static Guestbook fetchByPrimaryKey(long guestbookId) {
+		return getPersistence().fetchByPrimaryKey(guestbookId);
 	}
 
 	/**

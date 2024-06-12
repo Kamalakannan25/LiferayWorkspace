@@ -8,7 +8,7 @@
 
 		<!-- PK fields -->
 
-		<column name="entryId" primary="true" type="long" />
+		<column name="guestbookId" primary="true" type="long" />
 		
 		<column name="name" type="String" />
 

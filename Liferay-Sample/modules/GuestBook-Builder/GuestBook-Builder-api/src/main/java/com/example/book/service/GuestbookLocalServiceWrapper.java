@@ -58,12 +58,12 @@ public class GuestbookLocalServiceWrapper
 	/**
 	 * Creates a new guestbook with the primary key. Does not add the guestbook to the database.
 	 *
-	 * @param entryId the primary key for the new guestbook
+	 * @param guestbookId the primary key for the new guestbook
 	 * @return the new guestbook
 	 */
 	@Override
-	public com.example.book.model.Guestbook createGuestbook(long entryId) {
-		return _guestbookLocalService.createGuestbook(entryId);
+	public com.example.book.model.Guestbook createGuestbook(long guestbookId) {
+		return _guestbookLocalService.createGuestbook(guestbookId);
 	}
 
 	/**
@@ -101,15 +101,15 @@ public class GuestbookLocalServiceWrapper
 	 * <strong>Important:</strong> Inspect GuestbookLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
 	 * </p>
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook that was removed
 	 * @throws PortalException if a guestbook with the primary key could not be found
 	 */
 	@Override
-	public com.example.book.model.Guestbook deleteGuestbook(long entryId)
+	public com.example.book.model.Guestbook deleteGuestbook(long guestbookId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
-		return _guestbookLocalService.deleteGuestbook(entryId);
+		return _guestbookLocalService.deleteGuestbook(guestbookId);
 	}
 
 	/**
@@ -226,8 +226,8 @@ public class GuestbookLocalServiceWrapper
 	}
 
 	@Override
-	public com.example.book.model.Guestbook fetchGuestbook(long entryId) {
-		return _guestbookLocalService.fetchGuestbook(entryId);
+	public com.example.book.model.Guestbook fetchGuestbook(long guestbookId) {
+		return _guestbookLocalService.fetchGuestbook(guestbookId);
 	}
 
 	/**
@@ -265,15 +265,15 @@ public class GuestbookLocalServiceWrapper
 	/**
 	 * Returns the guestbook with the primary key.
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook
 	 * @throws PortalException if a guestbook with the primary key could not be found
 	 */
 	@Override
-	public com.example.book.model.Guestbook getGuestbook(long entryId)
+	public com.example.book.model.Guestbook getGuestbook(long guestbookId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
-		return _guestbookLocalService.getGuestbook(entryId);
+		return _guestbookLocalService.getGuestbook(guestbookId);
 	}
 
 	/**

@@ -1,7 +1,7 @@
 create table GB_Guestbook (
 	mvccVersion LONG default 0 not null,
 	uuid_ VARCHAR(75) null,
-	entryId LONG not null primary key,
+	guestbookId LONG not null primary key,
 	name VARCHAR(75) null,
 	groupId LONG,
 	companyId LONG,
@@ -19,7 +19,7 @@ create table GB_GuestbookEntry (
 	mvccVersion LONG default 0 not null,
 	uuid_ VARCHAR(75) null,
 	entryId LONG not null primary key,
-	name VARCHAR(75) null,
+	name VARCHAR(150) null,
 	email VARCHAR(75) null,
 	message VARCHAR(75) null,
 	guestbookId LONG,

@@ -5,7 +5,7 @@
 	<import class="com.example.book.model.Guestbook" />
 	<import class="com.example.book.model.GuestbookEntry" />
 	<class dynamic-update="true" name="com.example.book.model.impl.GuestbookImpl" table="GB_Guestbook">
-		<id access="com.liferay.portal.dao.orm.hibernate.MethodPropertyAccessor" name="entryId" type="long">
+		<id access="com.liferay.portal.dao.orm.hibernate.MethodPropertyAccessor" name="guestbookId" type="long">
 			<generator class="assigned" />
 		</id>
 		<version access="com.liferay.portal.dao.orm.hibernate.PrivateFieldPropertyAccessor" name="mvccVersion" type="long" />

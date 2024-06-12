@@ -103,13 +103,13 @@ public abstract class GuestbookLocalServiceBaseImpl
 	/**
 	 * Creates a new guestbook with the primary key. Does not add the guestbook to the database.
 	 *
-	 * @param entryId the primary key for the new guestbook
+	 * @param guestbookId the primary key for the new guestbook
 	 * @return the new guestbook
 	 */
 	@Override
 	@Transactional(enabled = false)
-	public Guestbook createGuestbook(long entryId) {
-		return guestbookPersistence.create(entryId);
+	public Guestbook createGuestbook(long guestbookId) {
+		return guestbookPersistence.create(guestbookId);
 	}
 
 	/**
@@ -119,14 +119,14 @@ public abstract class GuestbookLocalServiceBaseImpl
 	 * <strong>Important:</strong> Inspect GuestbookLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
 	 * </p>
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook that was removed
 	 * @throws PortalException if a guestbook with the primary key could not be found
 	 */
 	@Indexable(type = IndexableType.DELETE)
 	@Override
-	public Guestbook deleteGuestbook(long entryId) throws PortalException {
-		return guestbookPersistence.remove(entryId);
+	public Guestbook deleteGuestbook(long guestbookId) throws PortalException {
+		return guestbookPersistence.remove(guestbookId);
 	}
 
 	/**
@@ -245,8 +245,8 @@ public abstract class GuestbookLocalServiceBaseImpl
 	}
 
 	@Override
-	public Guestbook fetchGuestbook(long entryId) {
-		return guestbookPersistence.fetchByPrimaryKey(entryId);
+	public Guestbook fetchGuestbook(long guestbookId) {
+		return guestbookPersistence.fetchByPrimaryKey(guestbookId);
 	}
 
 	/**
@@ -264,13 +264,13 @@ public abstract class GuestbookLocalServiceBaseImpl
 	/**
 	 * Returns the guestbook with the primary key.
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook
 	 * @throws PortalException if a guestbook with the primary key could not be found
 	 */
 	@Override
-	public Guestbook getGuestbook(long entryId) throws PortalException {
-		return guestbookPersistence.findByPrimaryKey(entryId);
+	public Guestbook getGuestbook(long guestbookId) throws PortalException {
+		return guestbookPersistence.findByPrimaryKey(guestbookId);
 	}
 
 	@Override
@@ -282,7 +282,7 @@ public abstract class GuestbookLocalServiceBaseImpl
 		actionableDynamicQuery.setClassLoader(getClassLoader());
 		actionableDynamicQuery.setModelClass(Guestbook.class);
 
-		actionableDynamicQuery.setPrimaryKeyPropertyName("entryId");
+		actionableDynamicQuery.setPrimaryKeyPropertyName("guestbookId");
 
 		return actionableDynamicQuery;
 	}
@@ -299,7 +299,8 @@ public abstract class GuestbookLocalServiceBaseImpl
 		indexableActionableDynamicQuery.setClassLoader(getClassLoader());
 		indexableActionableDynamicQuery.setModelClass(Guestbook.class);
 
-		indexableActionableDynamicQuery.setPrimaryKeyPropertyName("entryId");
+		indexableActionableDynamicQuery.setPrimaryKeyPropertyName(
+			"guestbookId");
 
 		return indexableActionableDynamicQuery;
 	}
@@ -311,7 +312,7 @@ public abstract class GuestbookLocalServiceBaseImpl
 		actionableDynamicQuery.setClassLoader(getClassLoader());
 		actionableDynamicQuery.setModelClass(Guestbook.class);
 
-		actionableDynamicQuery.setPrimaryKeyPropertyName("entryId");
+		actionableDynamicQuery.setPrimaryKeyPropertyName("guestbookId");
 	}
 
 	@Override

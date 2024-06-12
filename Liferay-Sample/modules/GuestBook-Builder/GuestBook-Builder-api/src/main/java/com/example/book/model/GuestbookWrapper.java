@@ -36,7 +36,7 @@ public class GuestbookWrapper
 
 		attributes.put("mvccVersion", getMvccVersion());
 		attributes.put("uuid", getUuid());
-		attributes.put("entryId", getEntryId());
+		attributes.put("guestbookId", getGuestbookId());
 		attributes.put("name", getName());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
@@ -66,10 +66,10 @@ public class GuestbookWrapper
 			setUuid(uuid);
 		}
 
-		Long entryId = (Long)attributes.get("entryId");
+		Long guestbookId = (Long)attributes.get("guestbookId");
 
-		if (entryId != null) {
-			setEntryId(entryId);
+		if (guestbookId != null) {
+			setGuestbookId(guestbookId);
 		}
 
 		String name = (String)attributes.get("name");
@@ -165,16 +165,6 @@ public class GuestbookWrapper
 	}
 
 	/**
-	 * Returns the entry ID of this guestbook.
-	 *
-	 * @return the entry ID of this guestbook
-	 */
-	@Override
-	public long getEntryId() {
-		return model.getEntryId();
-	}
-
-	/**
 	 * Returns the group ID of this guestbook.
 	 *
 	 * @return the group ID of this guestbook
@@ -182,6 +172,16 @@ public class GuestbookWrapper
 	@Override
 	public long getGroupId() {
 		return model.getGroupId();
+	}
+
+	/**
+	 * Returns the guestbook ID of this guestbook.
+	 *
+	 * @return the guestbook ID of this guestbook
+	 */
+	@Override
+	public long getGuestbookId() {
+		return model.getGuestbookId();
 	}
 
 	/**
@@ -420,16 +420,6 @@ public class GuestbookWrapper
 	}
 
 	/**
-	 * Sets the entry ID of this guestbook.
-	 *
-	 * @param entryId the entry ID of this guestbook
-	 */
-	@Override
-	public void setEntryId(long entryId) {
-		model.setEntryId(entryId);
-	}
-
-	/**
 	 * Sets the group ID of this guestbook.
 	 *
 	 * @param groupId the group ID of this guestbook
@@ -437,6 +427,16 @@ public class GuestbookWrapper
 	@Override
 	public void setGroupId(long groupId) {
 		model.setGroupId(groupId);
+	}
+
+	/**
+	 * Sets the guestbook ID of this guestbook.
+	 *
+	 * @param guestbookId the guestbook ID of this guestbook
+	 */
+	@Override
+	public void setGuestbookId(long guestbookId) {
+		model.setGuestbookId(guestbookId);
 	}
 
 	/**

@@ -67,7 +67,7 @@ public class GuestbookModelImpl
 
 	public static final Object[][] TABLE_COLUMNS = {
 		{"mvccVersion", Types.BIGINT}, {"uuid_", Types.VARCHAR},
-		{"entryId", Types.BIGINT}, {"name", Types.VARCHAR},
+		{"guestbookId", Types.BIGINT}, {"name", Types.VARCHAR},
 		{"groupId", Types.BIGINT}, {"companyId", Types.BIGINT},
 		{"userId", Types.BIGINT}, {"userName", Types.VARCHAR},
 		{"createDate", Types.TIMESTAMP}, {"modifiedDate", Types.TIMESTAMP},
@@ -81,7 +81,7 @@ public class GuestbookModelImpl
 	static {
 		TABLE_COLUMNS_MAP.put("mvccVersion", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("uuid_", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("entryId", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("guestbookId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("name", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("groupId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("companyId", Types.BIGINT);
@@ -96,15 +96,15 @@ public class GuestbookModelImpl
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table GB_Guestbook (mvccVersion LONG default 0 not null,uuid_ VARCHAR(75) null,entryId LONG not null primary key,name VARCHAR(75) null,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null)";
+		"create table GB_Guestbook (mvccVersion LONG default 0 not null,uuid_ VARCHAR(75) null,guestbookId LONG not null primary key,name VARCHAR(75) null,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null)";
 
 	public static final String TABLE_SQL_DROP = "drop table GB_Guestbook";
 
 	public static final String ORDER_BY_JPQL =
-		" ORDER BY guestbook.entryId ASC";
+		" ORDER BY guestbook.guestbookId ASC";
 
 	public static final String ORDER_BY_SQL =
-		" ORDER BY GB_Guestbook.entryId ASC";
+		" ORDER BY GB_Guestbook.guestbookId ASC";
 
 	public static final String DATA_SOURCE = "liferayDataSource";
 
@@ -135,7 +135,7 @@ public class GuestbookModelImpl
 	 *		#getColumnBitmask(String)}
 	 */
 	@Deprecated
-	public static final long ENTRYID_COLUMN_BITMASK = 8L;
+	public static final long GUESTBOOKID_COLUMN_BITMASK = 8L;
 
 	/**
 	 * @deprecated As of Athanasius (7.3.x), with no direct replacement
@@ -156,17 +156,17 @@ public class GuestbookModelImpl
 
 	@Override
 	public long getPrimaryKey() {
-		return _entryId;
+		return _guestbookId;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setEntryId(primaryKey);
+		setGuestbookId(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _entryId;
+		return _guestbookId;
 	}
 
 	@Override
@@ -247,7 +247,8 @@ public class GuestbookModelImpl
 			attributeGetterFunctions.put(
 				"mvccVersion", Guestbook::getMvccVersion);
 			attributeGetterFunctions.put("uuid", Guestbook::getUuid);
-			attributeGetterFunctions.put("entryId", Guestbook::getEntryId);
+			attributeGetterFunctions.put(
+				"guestbookId", Guestbook::getGuestbookId);
 			attributeGetterFunctions.put("name", Guestbook::getName);
 			attributeGetterFunctions.put("groupId", Guestbook::getGroupId);
 			attributeGetterFunctions.put("companyId", Guestbook::getCompanyId);
@@ -286,7 +287,8 @@ public class GuestbookModelImpl
 			attributeSetterBiConsumers.put(
 				"uuid", (BiConsumer<Guestbook, String>)Guestbook::setUuid);
 			attributeSetterBiConsumers.put(
-				"entryId", (BiConsumer<Guestbook, Long>)Guestbook::setEntryId);
+				"guestbookId",
+				(BiConsumer<Guestbook, Long>)Guestbook::setGuestbookId);
 			attributeSetterBiConsumers.put(
 				"name", (BiConsumer<Guestbook, String>)Guestbook::setName);
 			attributeSetterBiConsumers.put(
@@ -369,17 +371,17 @@ public class GuestbookModelImpl
 
 	@JSON
 	@Override
-	public long getEntryId() {
-		return _entryId;
+	public long getGuestbookId() {
+		return _guestbookId;
 	}
 
 	@Override
-	public void setEntryId(long entryId) {
+	public void setGuestbookId(long guestbookId) {
 		if (_columnOriginalValues == Collections.EMPTY_MAP) {
 			_setColumnOriginalValues();
 		}
 
-		_entryId = entryId;
+		_guestbookId = guestbookId;
 	}
 
 	@JSON
@@ -763,7 +765,7 @@ public class GuestbookModelImpl
 
 		guestbookImpl.setMvccVersion(getMvccVersion());
 		guestbookImpl.setUuid(getUuid());
-		guestbookImpl.setEntryId(getEntryId());
+		guestbookImpl.setGuestbookId(getGuestbookId());
 		guestbookImpl.setName(getName());
 		guestbookImpl.setGroupId(getGroupId());
 		guestbookImpl.setCompanyId(getCompanyId());
@@ -788,7 +790,8 @@ public class GuestbookModelImpl
 		guestbookImpl.setMvccVersion(
 			this.<Long>getColumnOriginalValue("mvccVersion"));
 		guestbookImpl.setUuid(this.<String>getColumnOriginalValue("uuid_"));
-		guestbookImpl.setEntryId(this.<Long>getColumnOriginalValue("entryId"));
+		guestbookImpl.setGuestbookId(
+			this.<Long>getColumnOriginalValue("guestbookId"));
 		guestbookImpl.setName(this.<String>getColumnOriginalValue("name"));
 		guestbookImpl.setGroupId(this.<Long>getColumnOriginalValue("groupId"));
 		guestbookImpl.setCompanyId(
@@ -894,7 +897,7 @@ public class GuestbookModelImpl
 			guestbookCacheModel.uuid = null;
 		}
 
-		guestbookCacheModel.entryId = getEntryId();
+		guestbookCacheModel.guestbookId = getGuestbookId();
 
 		guestbookCacheModel.name = getName();
 
@@ -1020,7 +1023,7 @@ public class GuestbookModelImpl
 
 	private long _mvccVersion;
 	private String _uuid;
-	private long _entryId;
+	private long _guestbookId;
 	private String _name;
 	private long _groupId;
 	private long _companyId;
@@ -1066,7 +1069,7 @@ public class GuestbookModelImpl
 
 		_columnOriginalValues.put("mvccVersion", _mvccVersion);
 		_columnOriginalValues.put("uuid_", _uuid);
-		_columnOriginalValues.put("entryId", _entryId);
+		_columnOriginalValues.put("guestbookId", _guestbookId);
 		_columnOriginalValues.put("name", _name);
 		_columnOriginalValues.put("groupId", _groupId);
 		_columnOriginalValues.put("companyId", _companyId);
@@ -1105,7 +1108,7 @@ public class GuestbookModelImpl
 
 		columnBitmasks.put("uuid_", 2L);
 
-		columnBitmasks.put("entryId", 4L);
+		columnBitmasks.put("guestbookId", 4L);
 
 		columnBitmasks.put("name", 8L);
 

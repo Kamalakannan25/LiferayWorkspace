@@ -148,14 +148,14 @@ public interface GuestbookPersistence extends BasePersistence<Guestbook> {
 	/**
 	 * Returns the guestbooks before and after the current guestbook in the ordered set where uuid = &#63;.
 	 *
-	 * @param entryId the primary key of the current guestbook
+	 * @param guestbookId the primary key of the current guestbook
 	 * @param uuid the uuid
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next guestbook
 	 * @throws NoSuchGuestbookException if a guestbook with the primary key could not be found
 	 */
 	public Guestbook[] findByUuid_PrevAndNext(
-			long entryId, String uuid,
+			long guestbookId, String uuid,
 			com.liferay.portal.kernel.util.OrderByComparator<Guestbook>
 				orderByComparator)
 		throws NoSuchGuestbookException;
@@ -349,7 +349,7 @@ public interface GuestbookPersistence extends BasePersistence<Guestbook> {
 	/**
 	 * Returns the guestbooks before and after the current guestbook in the ordered set where uuid = &#63; and companyId = &#63;.
 	 *
-	 * @param entryId the primary key of the current guestbook
+	 * @param guestbookId the primary key of the current guestbook
 	 * @param uuid the uuid
 	 * @param companyId the company ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
@@ -357,7 +357,7 @@ public interface GuestbookPersistence extends BasePersistence<Guestbook> {
 	 * @throws NoSuchGuestbookException if a guestbook with the primary key could not be found
 	 */
 	public Guestbook[] findByUuid_C_PrevAndNext(
-			long entryId, String uuid, long companyId,
+			long guestbookId, String uuid, long companyId,
 			com.liferay.portal.kernel.util.OrderByComparator<Guestbook>
 				orderByComparator)
 		throws NoSuchGuestbookException;
@@ -495,14 +495,14 @@ public interface GuestbookPersistence extends BasePersistence<Guestbook> {
 	/**
 	 * Returns the guestbooks before and after the current guestbook in the ordered set where groupId = &#63;.
 	 *
-	 * @param entryId the primary key of the current guestbook
+	 * @param guestbookId the primary key of the current guestbook
 	 * @param groupId the group ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next guestbook
 	 * @throws NoSuchGuestbookException if a guestbook with the primary key could not be found
 	 */
 	public Guestbook[] findByGroupId_PrevAndNext(
-			long entryId, long groupId,
+			long guestbookId, long groupId,
 			com.liferay.portal.kernel.util.OrderByComparator<Guestbook>
 				orderByComparator)
 		throws NoSuchGuestbookException;
@@ -539,39 +539,39 @@ public interface GuestbookPersistence extends BasePersistence<Guestbook> {
 	/**
 	 * Creates a new guestbook with the primary key. Does not add the guestbook to the database.
 	 *
-	 * @param entryId the primary key for the new guestbook
+	 * @param guestbookId the primary key for the new guestbook
 	 * @return the new guestbook
 	 */
-	public Guestbook create(long entryId);
+	public Guestbook create(long guestbookId);
 
 	/**
 	 * Removes the guestbook with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook that was removed
 	 * @throws NoSuchGuestbookException if a guestbook with the primary key could not be found
 	 */
-	public Guestbook remove(long entryId) throws NoSuchGuestbookException;
+	public Guestbook remove(long guestbookId) throws NoSuchGuestbookException;
 
 	public Guestbook updateImpl(Guestbook guestbook);
 
 	/**
 	 * Returns the guestbook with the primary key or throws a <code>NoSuchGuestbookException</code> if it could not be found.
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook
 	 * @throws NoSuchGuestbookException if a guestbook with the primary key could not be found
 	 */
-	public Guestbook findByPrimaryKey(long entryId)
+	public Guestbook findByPrimaryKey(long guestbookId)
 		throws NoSuchGuestbookException;
 
 	/**
 	 * Returns the guestbook with the primary key or returns <code>null</code> if it could not be found.
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook, or <code>null</code> if a guestbook with the primary key could not be found
 	 */
-	public Guestbook fetchByPrimaryKey(long entryId);
+	public Guestbook fetchByPrimaryKey(long guestbookId);
 
 	/**
 	 * Returns all the guestbooks.

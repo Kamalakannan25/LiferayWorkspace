@@ -375,7 +375,7 @@ public class GuestbookPersistenceImpl
 	/**
 	 * Returns the guestbooks before and after the current guestbook in the ordered set where uuid = &#63;.
 	 *
-	 * @param entryId the primary key of the current guestbook
+	 * @param guestbookId the primary key of the current guestbook
 	 * @param uuid the uuid
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next guestbook
@@ -383,13 +383,13 @@ public class GuestbookPersistenceImpl
 	 */
 	@Override
 	public Guestbook[] findByUuid_PrevAndNext(
-			long entryId, String uuid,
+			long guestbookId, String uuid,
 			OrderByComparator<Guestbook> orderByComparator)
 		throws NoSuchGuestbookException {
 
 		uuid = Objects.toString(uuid, "");
 
-		Guestbook guestbook = findByPrimaryKey(entryId);
+		Guestbook guestbook = findByPrimaryKey(guestbookId);
 
 		Session session = null;
 
@@ -1185,7 +1185,7 @@ public class GuestbookPersistenceImpl
 	/**
 	 * Returns the guestbooks before and after the current guestbook in the ordered set where uuid = &#63; and companyId = &#63;.
 	 *
-	 * @param entryId the primary key of the current guestbook
+	 * @param guestbookId the primary key of the current guestbook
 	 * @param uuid the uuid
 	 * @param companyId the company ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
@@ -1194,13 +1194,13 @@ public class GuestbookPersistenceImpl
 	 */
 	@Override
 	public Guestbook[] findByUuid_C_PrevAndNext(
-			long entryId, String uuid, long companyId,
+			long guestbookId, String uuid, long companyId,
 			OrderByComparator<Guestbook> orderByComparator)
 		throws NoSuchGuestbookException {
 
 		uuid = Objects.toString(uuid, "");
 
-		Guestbook guestbook = findByPrimaryKey(entryId);
+		Guestbook guestbook = findByPrimaryKey(guestbookId);
 
 		Session session = null;
 
@@ -1718,7 +1718,7 @@ public class GuestbookPersistenceImpl
 	/**
 	 * Returns the guestbooks before and after the current guestbook in the ordered set where groupId = &#63;.
 	 *
-	 * @param entryId the primary key of the current guestbook
+	 * @param guestbookId the primary key of the current guestbook
 	 * @param groupId the group ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next guestbook
@@ -1726,11 +1726,11 @@ public class GuestbookPersistenceImpl
 	 */
 	@Override
 	public Guestbook[] findByGroupId_PrevAndNext(
-			long entryId, long groupId,
+			long guestbookId, long groupId,
 			OrderByComparator<Guestbook> orderByComparator)
 		throws NoSuchGuestbookException {
 
-		Guestbook guestbook = findByPrimaryKey(entryId);
+		Guestbook guestbook = findByPrimaryKey(guestbookId);
 
 		Session session = null;
 
@@ -2045,15 +2045,15 @@ public class GuestbookPersistenceImpl
 	/**
 	 * Creates a new guestbook with the primary key. Does not add the guestbook to the database.
 	 *
-	 * @param entryId the primary key for the new guestbook
+	 * @param guestbookId the primary key for the new guestbook
 	 * @return the new guestbook
 	 */
 	@Override
-	public Guestbook create(long entryId) {
+	public Guestbook create(long guestbookId) {
 		Guestbook guestbook = new GuestbookImpl();
 
 		guestbook.setNew(true);
-		guestbook.setPrimaryKey(entryId);
+		guestbook.setPrimaryKey(guestbookId);
 
 		String uuid = PortalUUIDUtil.generate();
 
@@ -2067,13 +2067,13 @@ public class GuestbookPersistenceImpl
 	/**
 	 * Removes the guestbook with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook that was removed
 	 * @throws NoSuchGuestbookException if a guestbook with the primary key could not be found
 	 */
 	@Override
-	public Guestbook remove(long entryId) throws NoSuchGuestbookException {
-		return remove((Serializable)entryId);
+	public Guestbook remove(long guestbookId) throws NoSuchGuestbookException {
+		return remove((Serializable)guestbookId);
 	}
 
 	/**
@@ -2259,26 +2259,26 @@ public class GuestbookPersistenceImpl
 	/**
 	 * Returns the guestbook with the primary key or throws a <code>NoSuchGuestbookException</code> if it could not be found.
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook
 	 * @throws NoSuchGuestbookException if a guestbook with the primary key could not be found
 	 */
 	@Override
-	public Guestbook findByPrimaryKey(long entryId)
+	public Guestbook findByPrimaryKey(long guestbookId)
 		throws NoSuchGuestbookException {
 
-		return findByPrimaryKey((Serializable)entryId);
+		return findByPrimaryKey((Serializable)guestbookId);
 	}
 
 	/**
 	 * Returns the guestbook with the primary key or returns <code>null</code> if it could not be found.
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook, or <code>null</code> if a guestbook with the primary key could not be found
 	 */
 	@Override
-	public Guestbook fetchByPrimaryKey(long entryId) {
-		return fetchByPrimaryKey((Serializable)entryId);
+	public Guestbook fetchByPrimaryKey(long guestbookId) {
+		return fetchByPrimaryKey((Serializable)guestbookId);
 	}
 
 	/**
@@ -2472,7 +2472,7 @@ public class GuestbookPersistenceImpl
 
 	@Override
 	protected String getPKDBName() {
-		return "entryId";
+		return "guestbookId";
 	}
 
 	@Override

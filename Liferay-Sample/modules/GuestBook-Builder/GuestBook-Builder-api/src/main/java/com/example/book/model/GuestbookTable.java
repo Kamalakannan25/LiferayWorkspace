@@ -27,8 +27,8 @@ public class GuestbookTable extends BaseTable<GuestbookTable> {
 		"mvccVersion", Long.class, Types.BIGINT, Column.FLAG_NULLITY);
 	public final Column<GuestbookTable, String> uuid = createColumn(
 		"uuid_", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
-	public final Column<GuestbookTable, Long> entryId = createColumn(
-		"entryId", Long.class, Types.BIGINT, Column.FLAG_PRIMARY);
+	public final Column<GuestbookTable, Long> guestbookId = createColumn(
+		"guestbookId", Long.class, Types.BIGINT, Column.FLAG_PRIMARY);
 	public final Column<GuestbookTable, String> name = createColumn(
 		"name", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
 	public final Column<GuestbookTable, Long> groupId = createColumn(

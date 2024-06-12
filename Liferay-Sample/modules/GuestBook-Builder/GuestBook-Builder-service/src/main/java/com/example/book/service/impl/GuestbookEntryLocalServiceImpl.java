@@ -35,6 +35,10 @@ public class GuestbookEntryLocalServiceImpl extends GuestbookEntryLocalServiceBa
 
 		long groupId = serviceContext.getScopeGroupId();
 		User user = userLocalService.getUserById(userId);
+		
+		System.out.println("name===>"+name);
+		System.out.println("email===>"+email);
+		System.out.println("message===>"+message);
 
 		Date now = new Date();
 		validate(name, email, message);

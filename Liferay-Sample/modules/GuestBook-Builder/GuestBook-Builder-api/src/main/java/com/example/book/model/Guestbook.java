@@ -27,12 +27,12 @@ public interface Guestbook extends GuestbookModel, PersistedModel {
 	 *
 	 * Never modify this interface directly. Add methods to <code>com.example.book.model.impl.GuestbookImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
-	public static final Accessor<Guestbook, Long> ENTRY_ID_ACCESSOR =
+	public static final Accessor<Guestbook, Long> GUESTBOOK_ID_ACCESSOR =
 		new Accessor<Guestbook, Long>() {
 
 			@Override
 			public Long get(Guestbook guestbook) {
-				return guestbook.getEntryId();
+				return guestbook.getGuestbookId();
 			}
 
 			@Override

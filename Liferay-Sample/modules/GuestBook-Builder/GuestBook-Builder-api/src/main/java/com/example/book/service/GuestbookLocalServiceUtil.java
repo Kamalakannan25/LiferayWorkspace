@@ -62,11 +62,11 @@ public class GuestbookLocalServiceUtil {
 	/**
 	 * Creates a new guestbook with the primary key. Does not add the guestbook to the database.
 	 *
-	 * @param entryId the primary key for the new guestbook
+	 * @param guestbookId the primary key for the new guestbook
 	 * @return the new guestbook
 	 */
-	public static Guestbook createGuestbook(long entryId) {
-		return getService().createGuestbook(entryId);
+	public static Guestbook createGuestbook(long guestbookId) {
+		return getService().createGuestbook(guestbookId);
 	}
 
 	/**
@@ -100,14 +100,14 @@ public class GuestbookLocalServiceUtil {
 	 * <strong>Important:</strong> Inspect GuestbookLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
 	 * </p>
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook that was removed
 	 * @throws PortalException if a guestbook with the primary key could not be found
 	 */
-	public static Guestbook deleteGuestbook(long entryId)
+	public static Guestbook deleteGuestbook(long guestbookId)
 		throws PortalException {
 
-		return getService().deleteGuestbook(entryId);
+		return getService().deleteGuestbook(guestbookId);
 	}
 
 	/**
@@ -205,8 +205,8 @@ public class GuestbookLocalServiceUtil {
 		return getService().dynamicQueryCount(dynamicQuery, projection);
 	}
 
-	public static Guestbook fetchGuestbook(long entryId) {
-		return getService().fetchGuestbook(entryId);
+	public static Guestbook fetchGuestbook(long guestbookId) {
+		return getService().fetchGuestbook(guestbookId);
 	}
 
 	/**
@@ -239,12 +239,14 @@ public class GuestbookLocalServiceUtil {
 	/**
 	 * Returns the guestbook with the primary key.
 	 *
-	 * @param entryId the primary key of the guestbook
+	 * @param guestbookId the primary key of the guestbook
 	 * @return the guestbook
 	 * @throws PortalException if a guestbook with the primary key could not be found
 	 */
-	public static Guestbook getGuestbook(long entryId) throws PortalException {
-		return getService().getGuestbook(entryId);
+	public static Guestbook getGuestbook(long guestbookId)
+		throws PortalException {
+
+		return getService().getGuestbook(guestbookId);
 	}
 
 	/**
