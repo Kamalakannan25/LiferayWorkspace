@@ -7,11 +7,15 @@ package com.example.book.service.impl;
 
 import com.example.book.exception.GuestbookNameException;
 import com.example.book.model.Guestbook;
+import com.example.book.model.GuestbookEntry;
+import com.example.book.service.GuestbookEntryLocalService;
 import com.example.book.service.base.GuestbookLocalServiceBaseImpl;
 import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -19,6 +23,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Brian Wing Shun Chan
@@ -83,4 +88,43 @@ public class GuestbookLocalServiceImpl extends GuestbookLocalServiceBaseImpl {
 		}
 	}
 	
+	public Guestbook updateGuestbook(long userId, long guestbookId, String name, ServiceContext serviceContext)
+			throws PortalException, SystemException {
+
+		Date now = new Date();
+		validate(name);
+
+		Guestbook guestbook = getGuestbook(guestbookId);
+		User user = userLocalService.getUser(userId);
+
+		guestbook.setUserId(userId);
+		guestbook.setUserName(user.getFullName());
+		guestbook.setModifiedDate(serviceContext.getModifiedDate(now));
+		guestbook.setName(name);
+		guestbook.setExpandoBridgeAttributes(serviceContext);
+
+		guestbookPersistence.update(guestbook);
+
+		return guestbook;
+
+	}
+	
+	public Guestbook deleteGuestbook(long guestbookId, ServiceContext serviceContext)
+			throws PortalException, SystemException {
+
+		Guestbook guestbook = getGuestbook(guestbookId);
+
+		List<GuestbookEntry> entries = _guestbookEntryLocalService.getGuestbookEntries(serviceContext.getScopeGroupId(),
+				guestbookId);
+
+		for (GuestbookEntry entry : entries) {
+			_guestbookEntryLocalService.deleteGuestbookEntry(entry.getEntryId());
+		}
+		guestbook = deleteGuestbook(guestbook);
+		return guestbook;
+
+	}
+	
+	@Reference
+	private GuestbookEntryLocalService _guestbookEntryLocalService;
 }

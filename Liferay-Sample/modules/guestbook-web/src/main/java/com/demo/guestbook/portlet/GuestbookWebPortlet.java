@@ -10,6 +10,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextFactory;
+import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 
@@ -48,7 +49,6 @@ import org.osgi.service.component.annotations.Reference;
 	service = Portlet.class
 )
 public class GuestbookWebPortlet extends MVCPortlet {
-	
 	
 	@Override
 	public void render(RenderRequest renderRequest, RenderResponse renderResponse)
@@ -111,6 +111,7 @@ public class GuestbookWebPortlet extends MVCPortlet {
         		 _guestbookEntryLocalService.addGuestbookEntry(serviceContext.getUserId(), guestbookId,
         				userName, email, message, serviceContext);
         		response.setRenderParameter("guestbookId", Long.toString(guestbookId));
+        		SessionMessages.add(request, "entryAdded");
         		
         	}catch(Exception e) {
         		e.printStackTrace();
@@ -130,6 +131,7 @@ public class GuestbookWebPortlet extends MVCPortlet {
 		try {
 			response.setRenderParameter("guestbookId", Long.toString(guestbookId));
 			_guestbookEntryLocalService.deleteGuestbookEntry(entryId);
+			SessionMessages.add(request, "entryDeleted");
 		}catch(Exception e) {
 			Logger.getLogger(GuestbookWebPortlet.class.getName()).log(Level.SEVERE, null, e);
 		}
