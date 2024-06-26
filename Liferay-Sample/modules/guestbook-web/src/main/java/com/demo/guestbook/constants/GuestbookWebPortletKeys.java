@@ -9,6 +9,9 @@ public class GuestbookWebPortletKeys {
 		"com_demo_guestbook_GuestbookWebPortlet";
 	
 	public static final String GUESTBOOK_ADMIN = 
-			"com_liferay_docs_guestbook_portlet_GuestbookAdminPortlet";
+			"com_demo_guestbook_GuestbookAdminPortlet";
+	
+	
+
 
 }

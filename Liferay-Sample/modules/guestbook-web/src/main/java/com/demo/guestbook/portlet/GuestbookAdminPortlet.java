@@ -1,6 +1,5 @@
 package com.demo.guestbook.portlet;
 
-import com.demo.guestbook.constants.GuestbookWebPortletKeys;
 import com.example.book.model.Guestbook;
 import com.example.book.service.GuestbookLocalService;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -30,11 +29,11 @@ import org.osgi.service.component.annotations.Reference;
 			"com.liferay.portlet.private-session-attributes=false",
 			"com.liferay.portlet.render-weight=50",
 			"com.liferay.portlet.use-default-template=true",
-			"javax.portlet.display-name=Guestbooks",
+			"javax.portlet.display-name=GuestbokAdmin",
 			"javax.portlet.expiration-cache=0",
 			"javax.portlet.init-param.template-path=/META-INF/resources/",
 			"javax.portlet.init-param.view-template=/guestbook_admin/view.jsp",
-			"javax.portlet.name=" + GuestbookWebPortletKeys.GUESTBOOK_ADMIN,
+			"javax.portlet.name=GuestbookAdministratoe",
 			"javax.portlet.resource-bundle=content.Language",
 			"javax.portlet.security-role-ref=administrator",
 			"javax.portlet.version=3.0"

@@ -1,5 +1,6 @@
 dependencies {
 	compile project(":modules:GuestBook-Builder:GuestBook-Builder-api")
+	compile project(":modules:guestbook-web")
 
 	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
 }

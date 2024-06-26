@@ -4,4 +4,5 @@ compile project(":modules:GuestBook-Builder:GuestBook-Builder-api")
 compileOnly group: "com.liferay", name: "com.liferay.application.list.api"
 compileOnly group: "com.liferay", name: "com.liferay.petra.string"
 	cssBuilder group: "com.liferay", name: "com.liferay.css.builder", version: "3.0.3"
+
 }

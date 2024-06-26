@@ -17,7 +17,8 @@ long guestbookId = ParamUtil.getLong(renderRequest, "guestbookId");
 <portlet:param name="mvcPath" value="/guestbook/view.jsp"/>
 </portlet:renderURL>
 
-<portlet:actionURL name="addEntry" var="addEntryURL" />
+<portlet:actionURL name="/addEntry" var="addEntryURL" >
+</portlet:actionURL>
 
 <aui:form action="<%= addEntryURL %>" name="<portlet:namespace />fm">
 
