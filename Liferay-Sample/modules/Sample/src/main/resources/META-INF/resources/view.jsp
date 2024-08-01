@@ -6,14 +6,17 @@
 <%@ include file="/init.jsp" %>
 <h2>CSV File, XLSX File and DOCX File</h2>
 
- <portlet:resourceURL var="resourceURL" >
-</portlet:resourceURL> 
+<!--  <portlet:resourceURL var="resourceURL" >
+ </portlet:resourceURL>  -->
+ <portlet:resourceURL id="serveResource" var="resourceURL" />
+
 
 
 <script>
 function downloadCSV() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '<portlet:resourceURL id="serveResource" />?fileType=csv', true);
+   /*  xhr.open('GET', '<portlet:resourceURL id="serveResource" />?fileType=csv', true); */
+    xhr.open('GET', '${resourceURL}', true);
     xhr.responseType = 'arraybuffer';
 
     xhr.onload = function () {

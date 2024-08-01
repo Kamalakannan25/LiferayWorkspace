@@ -111,7 +111,7 @@ if (curGuestbook.getGuestbookId() == guestbookId) {
 
 
 
-<portlet:resourceURL var="resourceURL" >
+<%-- <portlet:resourceURL var="resourceURL" >
 </portlet:resourceURL>
 
 
@@ -142,4 +142,4 @@ if (curGuestbook.getGuestbookId() == guestbookId) {
             }
         });
     }
-</script>
+</script> --%>

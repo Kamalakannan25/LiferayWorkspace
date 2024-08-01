@@ -40,7 +40,7 @@ public class DocxFilePortlet extends MVCPortlet{
 	public void serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse)
 			throws IOException, PortletException {
 		
-		System.out.println("Inside the method.....");
+		System.out.println("Inside the Docx file method.....");
 	    List<GuestbookEntry> guestbookEntries = GuestbookEntryLocalServiceUtil.getGuestbookEntries(-1, -1);
 	    System.out.println("Guest Book Entries: " + guestbookEntries);
 

@@ -60,7 +60,7 @@ public class SamplePortlet extends MVCPortlet {
 	@Override
 	public void serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse)
 			throws IOException, PortletException {
-		 System.out.println("Inside the method.....");
+		 System.out.println("Inside the CSV method.....");
 	        List<GuestbookEntry> guestbookEntries = GuestbookEntryLocalServiceUtil.getGuestbookEntries(-1, -1);
 	        System.out.println("Guest Book Entries: " + guestbookEntries);
 
@@ -91,7 +91,7 @@ public class SamplePortlet extends MVCPortlet {
 
 	        byte[] bytes = sb.toString().getBytes();
 	        String contentType = ContentTypes.APPLICATION_TEXT;
-	        PortletResponseUtil.sendFile(resourceRequest, resourceResponse, "EmployeeData.csv", bytes, contentType);
+	        PortletResponseUtil.sendFile(resourceRequest, resourceResponse, "guestbook_entries.csv", bytes, contentType);
 
 	        super.serveResource(resourceRequest, resourceResponse);
 	}

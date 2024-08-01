@@ -64,9 +64,9 @@ public class GuestbookWebPortlet extends MVCPortlet {
 		}
 	
 	
-	@Override
-	public void render(RenderRequest renderRequest, RenderResponse renderResponse)
-			throws IOException, PortletException {
+//	@Override
+//	public void render(RenderRequest renderRequest, RenderResponse renderResponse)
+//			throws IOException, PortletException {
 
 //		try {
 //			ServiceContext serviceContext = ServiceContextFactory.getInstance(Guestbook.class.getName(), renderRequest);
@@ -90,9 +90,9 @@ public class GuestbookWebPortlet extends MVCPortlet {
 //		} catch (PortalException e) {
 //			e.printStackTrace();
 //		}
-
-		super.render(renderRequest, renderResponse);
-	}
+//
+//		super.render(renderRequest, renderResponse);
+//	}
 	
 	
 	
