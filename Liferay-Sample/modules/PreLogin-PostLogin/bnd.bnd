@@ -1,0 +1,4 @@
+Bundle-Name: PreLogin-PostLogin
+Bundle-SymbolicName: com.post.pre
+Bundle-Version: 1.0.0
+Export-Package: com.post.pre.constants

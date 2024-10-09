@@ -1,0 +1,5 @@
+Bundle-Name: Pdf-generaor
+Bundle-SymbolicName: com.demo.pdf
+Bundle-Version: 1.0.0
+Export-Package: com.demo.pdf.constants
+Import-Package: org.*;resolution:=dynamic, *

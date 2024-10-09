@@ -1,0 +1,8 @@
+Bundle-Name: guestbook-web
+Bundle-SymbolicName: com.demo.guestbook
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.demo.guestbook.constants,\
+	com.example.book.model,\
+	com.demo.guestbook.portlet
+    

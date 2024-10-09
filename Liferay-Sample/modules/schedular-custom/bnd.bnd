@@ -1,0 +1,4 @@
+Bundle-Name: schedular-custom
+Bundle-SymbolicName: schedular.custom
+Bundle-Version: 1.0.0
+Export-Package: schedular.custom.constants
